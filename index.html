@@ -16,7 +16,10 @@
     <span id="progress" class="visually-hidden" role="status">0 of 4 matched</span>
 
     <section id="deck" class="screen deck" aria-labelledby="deck-title" hidden>
-      <h1 id="deck-title" class="visually-hidden" tabindex="-1">Presentation</h1>
+      <header class="slide-bar">
+        <h1 id="deck-title" tabindex="-1">Presentation</h1>
+        <span id="slide-number"></span>
+      </header>
       <img id="slide-image" alt="" hidden>
       <p id="deck-status" role="status">Connecting to the presentation…</p>
     </section>
@@ -26,7 +29,7 @@
       <p id="projected-code"></p>
     </section>
 
-    <section id="directory" class="screen directory" aria-labelledby="directory-title">
+    <section id="directory" class="screen directory" aria-labelledby="directory-title" hidden>
       <h1 id="directory-title" class="visually-hidden" tabindex="-1">Choose a challenge</h1>
       <nav class="ports" aria-label="Verification challenges">
         <a href="#1" data-port="1" aria-label="Challenge 1, unchecked">
@@ -47,13 +50,15 @@
     <section id="challenge" class="screen challenge" aria-labelledby="challenge-title" hidden>
       <a class="back" href="#">All challenges</a>
       <div class="challenge-panel">
+        <p id="verification-heading" hidden>Are you human?</p>
         <h1 id="challenge-title" tabindex="-1">Type what you see</h1>
         <p id="clue-hint"></p>
+        <p id="shared-hint" role="status" hidden></p>
         <form id="challenge-form">
           <label for="answer" class="visually-hidden">Enter the code</label>
           <div class="input-row">
             <input id="answer" type="text" autocomplete="off" autocapitalize="off"
-              spellcheck="false" maxlength="40" aria-describedby="clue-hint feedback">
+              spellcheck="false" maxlength="40" aria-describedby="clue-hint shared-hint feedback">
             <button type="submit">Check</button>
           </div>
           <p id="feedback" role="status"></p>
@@ -64,6 +69,7 @@
     <section id="failure" class="screen failure" aria-labelledby="failure-title" hidden>
       <h1 id="failure-title" tabindex="-1">VERIFICATION<br>FAILED</h1>
       <p id="failure-hint"></p>
+      <p id="retry-hint" role="status" hidden></p>
       <div class="failure-actions">
         <button id="retry" type="button">Try again</button>
         <a class="back" href="#">All challenges</a>
@@ -73,6 +79,13 @@
     <section id="verified" class="screen verified" aria-labelledby="verified-title" hidden>
       <h1 id="verified-title" tabindex="-1">Verified as human,<br>by humans.</h1>
       <button id="restart" type="button">Start over</button>
+    </section>
+
+    <section id="wall" class="screen verified" aria-labelledby="wall-title" hidden>
+      <h1 id="wall-title" tabindex="-1">Verified by humans</h1>
+      <p id="wall-summary" role="status"></p>
+      <p id="wall-detail"></p>
+      <p>This was a classroom artwork, not an identity check.</p>
     </section>
 
     <div id="connection-status" role="status"></div>

@@ -142,10 +142,50 @@ button:disabled { cursor: default; }
   text-align: center;
 }
 
+.slide-mode {
+  color-scheme: light;
+  background: #f5f6f8;
+  color: #192334;
+  font-family: system-ui, sans-serif;
+}
+
+.slide-mode :focus-visible { outline-color: #345a9e; }
+.slide-mode ::selection { background: #345a9e; color: #fff; }
+.deck { align-content: start; }
+
+.slide-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  width: 100%;
+  padding: 0.75rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #cdd4df;
+  text-align: start;
+}
+
+.slide-bar h1 { margin: 0; font-size: 1.05rem; }
+#slide-number { font-variant-numeric: tabular-nums; }
+#deck-status:empty { display: none; }
+
+.auth-mode #verification-heading {
+  background: var(--red);
+  color: var(--ink);
+  display: inline-block;
+  padding: 0.15em 0.45em;
+  font-size: clamp(1.4rem, 6vw, 3.5rem);
+  font-weight: bold;
+  margin: 0 0 1rem;
+}
+
+#shared-hint, #retry-hint { border-inline-start: 2px solid; padding-inline-start: 0.6rem; }
+
 #slide-image {
   display: block;
   width: 100%;
-  max-height: 88svh;
+  max-height: 76svh;
   object-fit: contain;
 }
 
@@ -160,6 +200,8 @@ button:disabled { cursor: default; }
 .remote fieldset { margin-top: 1rem; border: 1px solid var(--red); }
 .remote button { min-width: 3rem; }
 .remote button:disabled { text-decoration: line-through; }
+.remote-counts { display: flex; gap: 2rem; margin: 0; }
+.remote-counts dd { margin: 0; font-size: 1.5rem; }
 
 @media (prefers-reduced-motion: no-preference) {
   .screen[data-glitch]::after {
@@ -175,7 +217,7 @@ button:disabled { cursor: default; }
     animation: scan-tear 340ms ease-out both;
   }
 
-  .screen[data-glitch] :is(.number, h1:not(.visually-hidden)) {
+  .screen[data-glitch] :is(.number, h1:not(.visually-hidden), #verification-heading) {
     animation: signal-drift 340ms steps(1, end);
   }
 
@@ -187,6 +229,12 @@ button:disabled { cursor: default; }
 
   .failure[data-glitch] h1 {
     animation: signal-drift 680ms steps(1, end);
+  }
+
+  .auth-mode .challenge[data-glitch]::after {
+    height: 7px;
+    inset-inline-end: 20%;
+    animation-duration: 340ms;
   }
 }
 

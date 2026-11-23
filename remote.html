@@ -13,6 +13,10 @@
   <main class="console remote">
     <h1>Presenter remote</h1>
     <p id="remote-status" role="status">Connecting…</p>
+    <dl class="remote-counts">
+      <div><dt>Online</dt><dd id="online-count">—</dd></div>
+      <div><dt>Verified</dt><dd id="verified-count">—</dd></div>
+    </dl>
     <p class="remote-row">
       <a id="projector-link" target="_blank" rel="noopener">Open projector</a>
       <a href="./?live=1" target="_blank" rel="noopener">Open audience preview</a>
@@ -31,6 +35,11 @@
         <button type="button" data-action="challenge" data-number="3" aria-label="CAPTCHA 3">3</button>
         <button type="button" data-action="challenge" data-number="4" aria-label="CAPTCHA 4">4</button>
       </div>
+      <p class="remote-row">
+        <button type="button" data-action="hint" aria-pressed="false">Show hint</button>
+        <button type="button" data-action="advance">Force next challenge</button>
+        <button type="button" data-action="wall">Show verified wall</button>
+      </p>
       <p><button type="button" data-action="reset">Reset session</button></p>
     </fieldset>
     <p id="remote-error" role="alert"></p>
