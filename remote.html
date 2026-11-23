@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Human / By Human — Presenter</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js" defer></script>
+  <script src="remote.js" defer></script>
+</head>
+<body>
+  <main class="console remote">
+    <h1>Presenter remote</h1>
+    <p id="remote-status" role="status">Connecting…</p>
+    <p class="remote-row">
+      <a id="projector-link" target="_blank" rel="noopener">Open projector</a>
+      <a href="./?live=1" target="_blank" rel="noopener">Open audience preview</a>
+    </p>
+    <fieldset id="remote-controls" disabled>
+      <legend>Slides</legend>
+      <div class="remote-row">
+        <button type="button" data-action="previous">Previous</button>
+        <button type="button" data-action="next">Next</button>
+        <button type="button" data-action="resume">Resume slide</button>
+      </div>
+      <p>CAPTCHA</p>
+      <div class="remote-row">
+        <button type="button" data-action="challenge" data-number="1" aria-label="CAPTCHA 1">1</button>
+        <button type="button" data-action="challenge" data-number="2" aria-label="CAPTCHA 2">2</button>
+        <button type="button" data-action="challenge" data-number="3" aria-label="CAPTCHA 3">3</button>
+        <button type="button" data-action="challenge" data-number="4" aria-label="CAPTCHA 4">4</button>
+      </div>
+      <p><button type="button" data-action="reset">Reset session</button></p>
+    </fieldset>
+    <p id="remote-error" role="alert"></p>
+  </main>
+</body>
+</html>
