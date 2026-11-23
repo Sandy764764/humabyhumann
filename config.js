@@ -1,7 +1,7 @@
 "use strict";
 
 // Set this to the public Render HTTPS URL before publishing. Never put the presenter key here.
-const hostedApi = "";
+const hostedApi = "https://humabyhumann-backend.onrender.com";
 const syncInterval = 300;
 
 function roomFetch(path, options) {
