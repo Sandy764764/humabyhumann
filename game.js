@@ -1,6 +1,6 @@
 "use strict";
 
-const codes = ["NOISE", "FRAME", "PROXY", "PULSE"];
+const codes = ["NETWORK", "ASCII", "PULSE", "PROXY"];
 const params = new URLSearchParams(location.search);
 const projector = params.has("projector");
 const live = projector || params.has("live") || (location.protocol !== "file:" && !params.has("standalone"));
